@@ -1,0 +1,24 @@
+{
+  "scope": "Source-linked GEDI Version 3 QA/QC for a user-supplied polygon AOI and selected date window",
+  "primary_baseline": "Product-specific Version 3 quality flag = 1; metric valid and non-fill; acceptable positioning; non-water defined land class; urban proportion < 50; valid coordinates, time and 0 < selected sensitivity <= 1",
+  "metric_validity": {
+    "L2A": "finite RH98 >= 0 and finite non-fill RH100; negative lower RH percentiles are not excluded",
+    "L2B": "finite 0<=cover<=1, PAI>=0, FHD>=0",
+    "L4A": "finite AGBD>=0",
+    "L4C": "finite WSCI>=0"
+  },
+  "L2B_positioning": "degrade_include_flag is absent from L2B exports. Derive equivalent inclusion using accepted degrade codes 0,3,8,10,13,18,20,23,28,30,33,38,40,43,48,60,63,68 (attitude in 0,1,2,3,4,6 and trajectory in 0,3,8), and verify agreement with matched L2A flags.",
+  "orbit_screen": "Exclude shots flagged as orbit-segment outliers by either available L4 source. Retain otherwise usable L2 shots lacking an L4 orbit screen, explicitly mark availability, and report a fully-orbit-screened subset separately. Missing higher-level products do not automatically invalidate L2 measurements.",
+  "sensitivity_analyses": [
+    "selected sensitivity >= 0.95",
+    "night only solar elevation < 0",
+    "leaf-on flag == 0",
+    "complete orbit-screen availability"
+  ],
+  "phenology": "No extra leaf-on-only restriction in primary QC; L4A native quality already accounts for its model domain and phenology.",
+  "references": [
+    "https://lpdaac.usgs.gov/documents/2442/GEDI02_User_Guide_V3.pdf",
+    "https://daac.ornl.gov/GEDI/guides/GEDI_L4A_AGB_Density_V3.html",
+    "https://daac.ornl.gov/GEDI/guides/GEDI_L4C_WSCI_V3.html"
+  ]
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+outputs/
+inputs/*
+!inputs/README.md
+.env
+.env.*
+.netrc
+_netrc
+*.token
+*.log
